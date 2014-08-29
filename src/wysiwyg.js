@@ -21,6 +21,8 @@ $(window).load(function(){
 
 		}
 
+		iframe[0].contentDocument.execCommand('styleWithCSS', true, null);
+
 		if (options.size.height)
 		{
 			iframe.height(options.size.height);
@@ -31,6 +33,10 @@ $(window).load(function(){
 			iframe.width(options.size.width);
 		}
 
+		iframe[0].contentDocument.execCommand('enableObjectResizing', false, false);
+		iframe[0].contentDocument.execCommand('useCSS', true, null);
+
+
 // Click ready control object
 
 		if ( options.controls.bold )
@@ -40,6 +46,111 @@ $(window).load(function(){
 				iframe[0].contentDocument.execCommand('bold', false, null);
 			});
 		}
+
+		if ( options.controls.removeFormat )
+		{
+			options.controls.removeFormat.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('removeFormat', false, null);
+			});
+		}
+
+		if ( options.controls.selectAll )
+		{
+			options.controls.selectAll.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('selectAll', false, null);
+			});
+		}
+
+		if ( options.controls.paste )
+		{
+			options.controls.paste.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('paste', false, null);
+			});
+		}
+
+		if ( options.controls.cut )
+		{
+			options.controls.cut.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('cut', false, null);
+			});
+		}
+
+		if ( options.controls.delete )
+		{
+			options.controls.delete.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('delete', false, null);
+			});
+		}
+
+		if ( options.controls.forwardDelete )
+		{
+			options.controls.forwardDelete.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('forwardDelete', false, null);
+			});
+		}		
+
+		if ( options.controls.increaseFontSize )
+		{
+			options.controls.increaseFontSize.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('increaseFontSize', false, null);
+			});
+		}
+
+		if ( options.controls.copy )
+		{
+			options.controls.copy.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('copy', false, null);
+			});
+		}
+
+		if ( options.controls.undo )
+		{
+			options.controls.undo.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('undo', false, null);
+			});
+		}
+
+		if ( options.controls.redo )
+		{
+			options.controls.redo.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('redo', false, null);
+			});
+		}
+
+
+		if ( options.controls.unlink )
+		{
+			options.controls.unlink.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('unlink', false, null);
+			});
+		}
+
+		if ( options.controls.indent )
+		{
+			options.controls.indent.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('indent', false, null);
+			});
+		}	
+
+		if ( options.controls.outdent )
+		{
+			options.controls.outdent.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('outdent', false, null);
+			});
+		}	
 
 		if ( options.controls.italic )
 		{
@@ -111,7 +222,40 @@ $(window).load(function(){
 				e.preventDefault();
 				iframe[0].contentDocument.execCommand('insertHorizontalRule', false, null);
 			});			
-		}		
+		}	
+
+		if ( options.controls.subscript )
+		{
+			options.controls.subscript.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('subscript', false, null);
+			});			
+		}	
+
+		if ( options.controls.superscript )
+		{
+			options.controls.superscript.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('superscript', false, null);
+			});			
+		}
+
+		if ( options.controls.strikeThrough )
+		{
+			options.controls.strikeThrough.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('strikeThrough', false, null);
+			});			
+		}
+
+		if ( options.controls.insertParagraph )
+		{
+			options.controls.insertParagraph.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('insertParagraph', false, null);
+			});			
+		}
+
 
 // input controls object
 
@@ -125,11 +269,11 @@ $(window).load(function(){
 			});
 		}
 
-		if ( options.inputControls.link )
+		if ( options.inputControls.createLink )
 		{
-			options.inputControls.link.change(function(e){
+			options.inputControls.createLink.change(function(e){
 				e.preventDefault();
-				var val = options.inputControls.link.val();
+				var val = options.inputControls.createLink.val();
 				iframe[0].contentDocument.execCommand('createLink', false, val);
 				// console.log(val); 
 			});
@@ -165,6 +309,27 @@ $(window).load(function(){
 			});
 		}
 
+		if ( options.inputControls.insertHTML )
+		{
+			options.inputControls.insertHTML.change(function(e){
+				e.preventDefault();
+				var val = options.inputControls.insertHTML.val();
+				iframe[0].contentDocument.execCommand('insertHTML', false, val);
+				// console.log(val); 
+			});
+		}
+
+		if ( options.inputControls.hiliteColor )
+		{
+			options.inputControls.hiliteColor.change(function(e){
+				e.preventDefault();
+				var val = options.inputControls.hiliteColor.val();
+				iframe[0].contentDocument.execCommand('hiliteColor', false, val);
+				// console.log(val); 
+			});
+		}
+
+
 // defaults object
 
 		if ( options.defaults.fontFamily ) 
@@ -185,8 +350,37 @@ $(window).load(function(){
 			iframe.css(options.css);
 		}
 
-		return iframe[0].contentDocument.body.innerHTML;
+		return new WYSIWYG(iframe);
 
 	};
 
+	function htmlEntities(str) {
+	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+	function WYSIWYG(iframe)
+	{
+		var editor = iframe[0].contentDocument;
+		this.doAction = function(actionName, value){
+			if( value )
+			{
+				editor.execCommand(actionName, false, value);
+			} else {
+				iframe[0].contentDocument.execCommand(actionName, false, null);
+			}
+		}
+
+		this.html = function()
+		{
+			return iframe[0].contentDocument.body.innerHTML;
+		}
+
+		this.rawHTML = function()
+		{
+			return htmlEntities(this.html());
+		}
+
+	}
+
 });
+

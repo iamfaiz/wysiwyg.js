@@ -1,0 +1,18 @@
+@import url(http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,800);
+
+::selection { background: #eee; }
+-moz-::selection { background: #eee; }
+
+body {
+	font-family: "Raleway", "Calibri";
+	padding-top: 20px;
+}
+
+p { margin-top: 10px; font-size: 1.2em; }
+
+.center { text-align: center; margin: 0 auto; }
+
+code, pre {
+	font-family: monaco, consolas !important;
+}
