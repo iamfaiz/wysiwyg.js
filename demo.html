@@ -5,10 +5,23 @@
 	<title>WYSIWYG Demo</title>
 </head>
 <body>
-	
-<textarea name="" id="" cols="30" rows="10">
-	<p>Hello World!</p>
-</textarea>
+<button class="bold">Bold</button>
+<button class="italic">Italic</button>
+<button class="underline">Underline</button>
+<!-- <button class="fonty">Font Family</button>
+ --><select id="fonty">
+	<option value="ebrima">Ebrima</option>
+	<option value="arial">Arial</option>
+	<option value="georgia">Georgia</option>
+</select>
+<input type="text" id="linky" placeholder="Enter Link">
+
+
+
+<br>
+
+<textarea id="wysiwyg" cols="30" rows="10" style="width: 500px;">Hello World</textarea>
+
 	
 
 
@@ -17,7 +30,36 @@
 <script>
 	
 $(window).load(function(){
-	$("textarea").wysiwyg();
+
+
+	var options = {
+		controls: {
+			"bold": $(".bold"),
+			"italic": $(".italic"),
+			"underline": $(".underline")
+		},
+		inputControls: {
+			fontName: $("#fonty"),
+			link: $("#linky")
+		},
+		defaults: {
+			"fontFamily": "georgia",
+			"border": "1px solid lightgrey",
+		},
+		size : {
+			"height": "200",
+			"width": "500",
+		}
+
+	};
+
+
+
+
+	$("textarea#wysiwyg").wysiwyg( options );
+
+
+	
 });
 
 
