@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simple WYSIWYG Editor</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="src/simple_editor.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Simple Editor</h1>
+		<p>A simple HTML editor with a few editing buttons.</p>
+		
+		<br>
+		<div class="simpleEditorContainer">	
+			<textarea>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nesciunt error voluptatibus saepe sit <b>eum id</b>, a optio aliquid doloribus ipsa enim itaque dignissimos repellendus illo event? Animi, asperiores, fuga!</textarea>
+		</div>
+	</div>
+
+<script src="src/jquery.min.js"></script>
+<script src="src/wysiwyg.js"></script>
+<script src="src/simple_editor.js"></script>
+<script>
+$(document).ready(function(){
+	$("textarea").simpleEditor();
+});
+</script>
+</body>
+</html>
