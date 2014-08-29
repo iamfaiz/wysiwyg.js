@@ -8,19 +8,30 @@
 <button class="bold">Bold</button>
 <button class="italic">Italic</button>
 <button class="underline">Underline</button>
+<button class="orderedList">Ordered List</button>
 <!-- <button class="fonty">Font Family</button>
  --><select id="fonty">
 	<option value="ebrima">Ebrima</option>
 	<option value="arial">Arial</option>
 	<option value="georgia">Georgia</option>
 </select>
-<input type="text" id="linky" placeholder="Enter Link">
+<select id="sizy">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+</select>
+<input type="text" id="colory" placeholder="Font Color">
+<input type="text" id="linky" placeholder="Enter Link URL">
 
 
 
 <br>
 
-<textarea id="wysiwyg" cols="30" rows="10" style="width: 500px;">Hello World</textarea>
+<textarea id="wysiwyg" cols="30" rows="10" style="width: 500px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laborum aperiam, quia provident, quas iusto maiores ratione quidem dolor quisquam nesciunt nisi assumenda deleniti quae recusandae earum cum. Praesentium, autem.</textarea>
 
 	
 
@@ -34,21 +45,24 @@ $(window).load(function(){
 
 	var options = {
 		controls: {
-			"bold": $(".bold"),
-			"italic": $(".italic"),
-			"underline": $(".underline")
+			bold: $(".bold"),
+			italic: $(".italic"),
+			underline: $(".underline"),
+			orderedList: $(".orderedList")
 		},
 		inputControls: {
 			fontName: $("#fonty"),
-			link: $("#linky")
+			link: $("#linky"),
+			fontSize: $("#sizy"),
+			fontColor: $("#colory")
 		},
 		defaults: {
-			"fontFamily": "georgia",
-			"border": "1px solid lightgrey",
+			fontFamily: "georgia",
+			border: "1px solid lightgrey",
 		},
 		size : {
-			"height": "200",
-			"width": "500",
+			height: "100%",
+			width: "500",
 		}
 
 	};

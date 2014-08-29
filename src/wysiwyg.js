@@ -31,6 +31,8 @@ $(window).load(function(){
 			iframe.width(options.size.width);
 		}
 
+// Click ready control object
+
 		if ( options.controls.bold )
 		{
 			options.controls.bold.click(function(e){
@@ -55,6 +57,14 @@ $(window).load(function(){
 			});
 		}
 
+		if ( options.controls.orderedList )
+		{
+			options.controls.orderedList.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('insertOrderedList', false, null);
+			});
+		}
+
 // input controls object
 
 		if ( options.inputControls.fontName )
@@ -73,6 +83,26 @@ $(window).load(function(){
 				e.preventDefault();
 				var val = options.inputControls.link.val();
 				iframe[0].contentDocument.execCommand('createLink', false, val);
+				// console.log(val); 
+			});
+		}
+
+		if ( options.inputControls.fontSize )
+		{
+			options.inputControls.fontSize.change(function(e){
+				e.preventDefault();
+				var val = options.inputControls.fontSize.val();
+				iframe[0].contentDocument.execCommand('fontSize', false, val);
+				// console.log(val); 
+			});
+		}
+
+		if ( options.inputControls.fontColor )
+		{
+			options.inputControls.fontColor.change(function(e){
+				e.preventDefault();
+				var val = options.inputControls.fontColor.val();
+				iframe[0].contentDocument.execCommand('foreColor', false, val);
 				// console.log(val); 
 			});
 		}
