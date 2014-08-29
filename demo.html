@@ -10,6 +10,11 @@
 <button class="underline">Underline</button>
 <button class="orderedList">Ordered List</button>
 <button class="unOrderedList">Unordered List</button>
+<button class="right">Right Text</button>
+<button class="left">Left Text</button>
+<button class="center">Center Text</button>
+<button class="full">Justify Full</button>
+<button class="rule">Horizontal Rule</button>
 <!-- <button class="fonty">Font Family</button>
  --><select id="fonty">
  	<option disabled="true" selected="true">Select a font</option>
@@ -28,6 +33,7 @@
 </select>
 <input type="text" id="colory" placeholder="Font Color">
 <input type="text" id="linky" placeholder="Enter Link URL">
+<input type="url" id="imagey" placeholder="Enter Image URL">
 
 
 
@@ -51,13 +57,19 @@ $(window).load(function(){
 			italic: $(".italic"),
 			underline: $(".underline"),
 			orderedList: $(".orderedList"),
-			unOrderedList: $(".unOrderedList")
+			unOrderedList: $(".unOrderedList"),
+			justifyCenter: $(".center"),
+			justifyRight: $(".right"),
+			justifyLeft: $(".left"),
+			justifyFull: $(".full"),
+			insertHorizontalRule: $(".rule")
 		},
 		inputControls: {
 			fontName: $("#fonty"),
 			link: $("#linky"),
 			fontSize: $("#sizy"),
-			fontColor: $("#colory")
+			fontColor: $("#colory"),
+			insertImage: $("#imagey")
 		},
 		defaults: {
 			fontFamily: "georgia",

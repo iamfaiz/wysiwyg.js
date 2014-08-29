@@ -73,6 +73,46 @@ $(window).load(function(){
 			});
 		}
 
+		if ( options.controls.justifyCenter )
+		{
+			options.controls.justifyCenter.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('justifyCenter', false, null);
+			});			
+		}
+
+		if ( options.controls.justifyLeft )
+		{
+			options.controls.justifyLeft.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('justifyLeft', false, null);
+			});			
+		}
+
+		if ( options.controls.justifyRight )
+		{
+			options.controls.justifyRight.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('justifyRight', false, null);
+			});			
+		}
+
+		if ( options.controls.justifyFull )
+		{
+			options.controls.justifyFull.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('justifyFull', false, null);
+			});			
+		}
+
+		if ( options.controls.insertHorizontalRule )
+		{
+			options.controls.insertHorizontalRule.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('insertHorizontalRule', false, null);
+			});			
+		}		
+
 // input controls object
 
 		if ( options.inputControls.fontName )
@@ -111,6 +151,16 @@ $(window).load(function(){
 				e.preventDefault();
 				var val = options.inputControls.fontColor.val();
 				iframe[0].contentDocument.execCommand('foreColor', false, val);
+				// console.log(val); 
+			});
+		}
+
+		if ( options.inputControls.insertImage )
+		{
+			options.inputControls.insertImage.change(function(e){
+				e.preventDefault();
+				var val = options.inputControls.insertImage.val();
+				iframe[0].contentDocument.execCommand('insertImage', false, val);
 				// console.log(val); 
 			});
 		}
