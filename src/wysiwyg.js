@@ -65,6 +65,14 @@ $(window).load(function(){
 			});
 		}
 
+		if ( options.controls.unOrderedList )
+		{
+			options.controls.unOrderedList.click(function(e){
+				e.preventDefault();
+				iframe[0].contentDocument.execCommand('insertUnorderedList', false, null);
+			});
+		}
+
 // input controls object
 
 		if ( options.inputControls.fontName )
@@ -117,6 +125,14 @@ $(window).load(function(){
 		if ( options.defaults.border ) 
 		{
 			iframe[0].style.border = options.defaults.border;
+		}
+
+
+// CSS Object
+
+		if ( options.css )
+		{
+			iframe.css(options.css);
 		}
 
 		return iframe[0].contentDocument.body.innerHTML;

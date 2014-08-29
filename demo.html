@@ -9,8 +9,10 @@
 <button class="italic">Italic</button>
 <button class="underline">Underline</button>
 <button class="orderedList">Ordered List</button>
+<button class="unOrderedList">Unordered List</button>
 <!-- <button class="fonty">Font Family</button>
  --><select id="fonty">
+ 	<option disabled="true" selected="true">Select a font</option>
 	<option value="ebrima">Ebrima</option>
 	<option value="arial">Arial</option>
 	<option value="georgia">Georgia</option>
@@ -48,7 +50,8 @@ $(window).load(function(){
 			bold: $(".bold"),
 			italic: $(".italic"),
 			underline: $(".underline"),
-			orderedList: $(".orderedList")
+			orderedList: $(".orderedList"),
+			unOrderedList: $(".unOrderedList")
 		},
 		inputControls: {
 			fontName: $("#fonty"),
@@ -61,8 +64,11 @@ $(window).load(function(){
 			border: "1px solid lightgrey",
 		},
 		size : {
-			height: "100%",
-			width: "500",
+			height: "auto",
+			width: "100%",
+		},
+		css : {
+			"background": "#eee"
 		}
 
 	};
